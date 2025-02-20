@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Prediction System</h1>
+        
+        <div class="input-form">
+            <form id="input-form">
+                <div class="form-row">
+                    <label for="pregnancies">Pregnancies:</label>
+                    <input type="text" id="pregnancies" name="pregnancies" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="glucose">Glucose:</label>
+                    <input type="text" id="glucose" name="glucose" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="blood_pressure">Blood Pressure:</label>
+                    <input type="text" id="blood_pressure" name="blood_pressure" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="skin_thickness">Skin Thickness:</label>
+                    <input type="text" id="skin_thickness" name="skin_thickness" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="insulin">Insulin:</label>
+                    <input type="text" id="insulin" name="insulin" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="bmi">BMI:</label>
+                    <input type="text" id="bmi" name="bmi" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="dpf">Diabetes Pedigree Function:</label>
+                    <input type="text" id="dpf" name="dpf" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="age">Age:</label>
+                    <input type="text" id="age" name="age" required>
+                </div>
+
+                <div class="button-row">
+                    <button type="submit" id="predict-button">Predict Outcome</button>
+                    <button type="button" id="clear-button" onclick="clearForm()">Clear Text</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="prediction-output"></div>
+
+        <div id="diet-plan" style="display:none;">
+            <h3>Diet Plan</h3>
+            <img src="{{ url_for('static', filename='images/diet_plan.jpeg') }}" alt="Diet Plan">
+        </div>
+
+        <div class="button-row">
+            <button onclick="startPreprocess()" id="preprocess-button">Preprocess Data</button>
+            <button onclick="calculateAccuracies()" id="accuracy-button">Calculate Model Accuracies</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
